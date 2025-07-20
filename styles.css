@@ -1,0 +1,160 @@
+/* ------------------------
+   Card-style containers
+------------------------ */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ------------------------
+   Main background
+------------------------ */
+.md-main {
+  background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+}
+
+/* ------------------------
+   Headings
+------------------------ */
+h2, h3 {
+  color: #444;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* h2 with card style */
+.md-typeset h2 {
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  margin-top: 1.5rem;
+}
+
+/* ------------------------
+   Paragraphs
+------------------------ */
+.md-typeset p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+  color: #333;
+  margin: 0.5rem 0 1rem 0;
+}
+
+/* ------------------------
+   Lists
+------------------------ */
+.md-typeset ul {
+  background-color: #f8f9fa;
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+  line-height: 1.6;
+}
+
+/* ------------------------
+   Links
+------------------------ */
+a {
+  color: purple;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------
+   Fade-in Animation (if used)
+------------------------ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.md-typeset > * {
+  animation: fadeIn 0.6s ease-out;
+  animation-delay: 0.05s;
+}
+/* Light Background for the Page */
+.md-content {
+  background-color: #f4f6fa; /* soft light gray-blue */
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+/* Accent-Colored Borders for Headings */
+.md-typeset h2 {
+  border-left: 5px solid #4f46e5; /* Indigo-600 */
+}
+
+/* Project & Skill Icons */
+.md-typeset strong {
+  color: #1e40af; /* Blue-800 */
+}
+
+/* Highlight Important Words */
+.md-typeset em {
+  background-color: #dbeafe; /* Light blue */
+  padding: 0 0.3rem;
+  border-radius: 4px;
+}
+
+
+/* Link Styling */
+.md-typeset a {
+  color: #2563eb; /* Blue-600 */
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: 0.3s ease;
+}
+
+.md-typeset a:hover {
+  border-bottom: 1px solid #2563eb;
+}
+
+.md-header .md-social__link img {
+  border-radius: 50%;
+  height: 32px;
+  width: 32px;
+  object-fit: cover;
+}
+
+/* Navigation bar profile image with hover effect */
+.nav-profile-image {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  margin-left: auto;
+  margin-right: 16px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-profile-image:hover {
+  transform: scale(1.4);
+}
+
