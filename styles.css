@@ -1,160 +1,208 @@
-/* ------------------------
-   Card-style containers
------------------------- */
-.card {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
-  margin: 1rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+/* ============================================== */
+/* 1. STATIC BACKGROUND AND BASE STYLES */
+/* ============================================== */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333; /* Default body text remains dark for elements not inside containers */
+    transition: all 0.3s ease; 
+
+    /* Static, Calm Gradient: Light Mint to Off-White */
+    background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 70%, #f1f8e9 100%);
+    background-attachment: fixed; 
+    min-height: 100vh; 
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+/* ============================================== */
+/* 2. LAYOUT AND FOREGROUND STYLES (Transparent Blue/Purple) */
+/* ============================================== */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+    overflow: hidden;
+    
+    /* Transparent Blue Foreground Color for the main container */
+    background: rgba(24, 58, 194, 0.9); 
+    
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 2; 
+    position: relative; 
+    /* NEW: Set all text inside the container to white for contrast */
+    color: #fff;
+}
+        
+/* Header and Navigation */
+header {
+    background: #450c71; /* Purple */
+    color: #fff;
+    padding-top: 20px;
+    min-height: 60px;
+    border-radius: 8px 8px 0 0;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+header h1 {
+    margin: 0;
+    padding-bottom: 15px;
+    font-size: 2.2em;
+}
+nav ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    background: #6b0f92; /* Darker Purple */
+    margin: 0;
+    transition: background-color 0.3s ease;
+}
+nav ul li {
+    display: inline-block;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+    padding: 15px 20px;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+nav ul li a:hover {
+    /* Updated hover color to complement the purple scheme */
+    background-color: #9c27b0; 
+    transform: translateY(-2px);
 }
 
-/* ------------------------
-   Main background
------------------------- */
-.md-main {
-  background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+/* Section Cards and Headings */
+section {
+    padding: 20px 0;
+    margin-bottom: 20px;
+}
+h2 {
+    /* NEW: Change section heading color to a bright contrasting color */
+    color: #ffeb3b; /* Bright Yellow for contrast */
+    /* NEW: Update border color to a lighter complementary shade */
+    border-bottom: 3px solid #e0f7fa; 
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+h3 {
+    /* NEW: Set subheading color to white */
+    color: #fff;
+    margin-top: 20px;
+    font-size: 1.3em;
 }
 
-/* ------------------------
-   Headings
------------------------- */
-h2, h3 {
-  color: #444;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+/* Card Styling for Content (Flexbox) */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.content-card {
+    /* Transparent Darker Blue Foreground Color for the cards */
+    background: rgba(17, 30, 145, 0.9); 
+    
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    flex-basis: 100%; 
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+/* Card Hover Effect */
+.content-card:hover {
+    transform: translateY(-5px);
+    /* NEW: Updated shadow to complement the blue/purple scheme */
+    box-shadow: 0 8px 20px rgba(74, 20, 140, 0.5); 
+}
+@media (min-width: 768px) {
+    .content-card {
+        flex-basis: calc(50% - 10px); 
+    }
+}
+.full-width-card {
+    flex-basis: 100%;
 }
 
-/* h2 with card style */
-.md-typeset h2 {
-  background-color: #ffffff;
-  padding: 1rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-  margin-top: 1.5rem;
+/* Skill & Tool Styling (Teal accent) */
+.skill-item, .tool-item {
+    background: #e0f2f1; 
+    /* NEW: Keep skill text dark for contrast against light skill chip background */
+    color: #333; 
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.skill-item:hover, .tool-item:hover {
+    background-color: #b2dfdb; 
 }
 
-/* ------------------------
-   Paragraphs
------------------------- */
-.md-typeset p {
-  line-height: 1.8;
-  font-size: 1.05rem;
-  color: #333;
-  margin: 0.5rem 0 1rem 0;
-}
-
-/* ------------------------
-   Lists
------------------------- */
-.md-typeset ul {
-  background-color: #f8f9fa;
-  padding: 1rem 1.25rem;
-  border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
-  line-height: 1.6;
-}
-
-/* ------------------------
-   Links
------------------------- */
+/* Links */
 a {
-  color: purple;
-  font-weight: bold;
-  text-decoration: none;
+    /* NEW: Change link color to a light blue/cyan for visibility */
+    color: #80deea;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-
 a:hover {
-  text-decoration: underline;
+    /* NEW: Change link hover color for a hover effect */
+    color: #4dd0e1;
+    text-decoration: underline;
 }
 
-/* ------------------------
-   Fade-in Animation (if used)
------------------------- */
-@keyframes fadeIn {
-  from {
+/* Contact Details */
+.contact-detail p {
+    margin: 5px 0;
+}
+.contact-detail strong {
+    /* Ensure strong text inside the container is also white */
+    color: #fff; 
+}
+
+
+/* ============================================== */
+/* 3. DYNAMIC BEHAVIOR STYLES */
+/* ============================================== */
+
+/* Sticky Header Styles */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    /* NEW: Update sticky header background to dark purple */
+    background: #450c71; 
+}
+.sticky h1 {
+    padding-bottom: 0;
+}
+.sticky nav {
+    background: transparent;
+}
+
+
+/* Scroll-Reveal Card Styles */
+.hidden-card {
     opacity: 0;
     transform: translateY(20px);
-  }
-  to {
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.hidden-card.reveal {
     opacity: 1;
     transform: translateY(0);
-  }
 }
-
-.fade-in {
-  animation: fadeIn 0.6s ease-out forwards;
-  opacity: 0;
-}
-
-.md-typeset > * {
-  animation: fadeIn 0.6s ease-out;
-  animation-delay: 0.05s;
-}
-/* Light Background for the Page */
-.md-content {
-  background-color: #f4f6fa; /* soft light gray-blue */
-  padding: 2rem;
-  border-radius: 12px;
-}
-
-/* Accent-Colored Borders for Headings */
-.md-typeset h2 {
-  border-left: 5px solid #4f46e5; /* Indigo-600 */
-}
-
-/* Project & Skill Icons */
-.md-typeset strong {
-  color: #1e40af; /* Blue-800 */
-}
-
-/* Highlight Important Words */
-.md-typeset em {
-  background-color: #dbeafe; /* Light blue */
-  padding: 0 0.3rem;
-  border-radius: 4px;
-}
-
-
-/* Link Styling */
-.md-typeset a {
-  color: #2563eb; /* Blue-600 */
-  text-decoration: none;
-  font-weight: 500;
-  border-bottom: 1px solid transparent;
-  transition: 0.3s ease;
-}
-
-.md-typeset a:hover {
-  border-bottom: 1px solid #2563eb;
-}
-
-.md-header .md-social__link img {
-  border-radius: 50%;
-  height: 32px;
-  width: 32px;
-  object-fit: cover;
-}
-
-/* Navigation bar profile image with hover effect */
-.nav-profile-image {
-  border-radius: 50%;
-  height: 40px;
-  width: 40px;
-  margin-left: auto;
-  margin-right: 16px;
-  object-fit: cover;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease-in-out;
-}
-
-.nav-profile-image:hover {
-  transform: scale(1.4);
-}
-
