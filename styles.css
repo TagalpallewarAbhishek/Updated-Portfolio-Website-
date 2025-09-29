@@ -7,7 +7,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    color: #333; /* Default body text remains dark for elements not inside containers */
+    color: #333; 
     transition: all 0.3s ease; 
 
     /* Static, Calm Gradient: Light Mint to Off-White */
@@ -19,6 +19,18 @@ body {
 /* ============================================== */
 /* 2. LAYOUT AND FOREGROUND STYLES (Transparent Blue/Purple) */
 /* ============================================== */
+
+/* Profile Picture Styling */
+.profile-pic {
+    width: 80px; 
+    height: 80px;
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 3px solid #ffeb3b; /* Bright border */
+    margin-top: 10px;
+    margin-bottom: -10px; 
+    z-index: 1001; 
+}
 
 .container {
     width: 90%;
@@ -34,7 +46,7 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     z-index: 2; 
     position: relative; 
-    /* NEW: Set all text inside the container to white for contrast */
+    /* Set all text inside the container to white for contrast */
     color: #fff;
 }
         
@@ -45,12 +57,16 @@ header {
     padding-top: 20px;
     min-height: 60px;
     border-radius: 8px 8px 0 0;
-    text-align: center;
+    /* Flexbox setup for image/title centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     transition: background-color 0.3s ease;
 }
 header h1 {
-    margin: 0;
-    padding-bottom: 15px;
+    margin: 10px 0 15px 0; 
+    padding-bottom: 0; 
     font-size: 2.2em;
 }
 nav ul {
@@ -74,7 +90,6 @@ nav ul li a {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 nav ul li a:hover {
-    /* Updated hover color to complement the purple scheme */
     background-color: #9c27b0; 
     transform: translateY(-2px);
 }
@@ -85,16 +100,13 @@ section {
     margin-bottom: 20px;
 }
 h2 {
-    /* NEW: Change section heading color to a bright contrasting color */
     color: #ffeb3b; /* Bright Yellow for contrast */
-    /* NEW: Update border color to a lighter complementary shade */
     border-bottom: 3px solid #e0f7fa; 
     padding-bottom: 10px;
     margin-bottom: 25px;
     font-size: 1.8em;
 }
 h3 {
-    /* NEW: Set subheading color to white */
     color: #fff;
     margin-top: 20px;
     font-size: 1.3em;
@@ -121,7 +133,6 @@ h3 {
 /* Card Hover Effect */
 .content-card:hover {
     transform: translateY(-5px);
-    /* NEW: Updated shadow to complement the blue/purple scheme */
     box-shadow: 0 8px 20px rgba(74, 20, 140, 0.5); 
 }
 @media (min-width: 768px) {
@@ -133,11 +144,10 @@ h3 {
     flex-basis: 100%;
 }
 
-/* Skill & Tool Styling (Teal accent) */
+/* Skill & Tool Styling */
 .skill-item, .tool-item {
     background: #e0f2f1; 
-    /* NEW: Keep skill text dark for contrast against light skill chip background */
-    color: #333; 
+    color: #333; /* Dark text for contrast against light skill chip background */
     padding: 8px 15px;
     border-radius: 20px;
     display: inline-block;
@@ -152,13 +162,11 @@ h3 {
 
 /* Links */
 a {
-    /* NEW: Change link color to a light blue/cyan for visibility */
-    color: #80deea;
+    color: #80deea; /* Light blue/cyan for visibility */
     text-decoration: none;
     transition: color 0.3s ease;
 }
 a:hover {
-    /* NEW: Change link hover color for a hover effect */
     color: #4dd0e1;
     text-decoration: underline;
 }
@@ -168,7 +176,6 @@ a:hover {
     margin: 5px 0;
 }
 .contact-detail strong {
-    /* Ensure strong text inside the container is also white */
     color: #fff; 
 }
 
@@ -184,11 +191,17 @@ a:hover {
     width: 100%;
     z-index: 1000; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    /* NEW: Update sticky header background to dark purple */
-    background: #450c71; 
+    background: #450c71; /* Full purple background when sticky */
+    padding-top: 10px; /* Reduced padding when sticky */
+}
+.sticky .profile-pic {
+    width: 50px; /* Reduce size when sticky */
+    height: 50px;
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 .sticky h1 {
-    padding-bottom: 0;
+    display: none; /* Hide the large name when sticky */
 }
 .sticky nav {
     background: transparent;

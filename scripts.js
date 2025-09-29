@@ -5,14 +5,17 @@
 const header = document.getElementById("main-header");
 // Check if the header element exists before trying to get its position
 if (header) {
-    let headerOffset = header.offsetTop; 
-
+    // We get the offset inside the function to account for potential layout shifts
+    
     function makeHeaderSticky() {
-        if (window.pageYOffset > headerOffset) {
+        // Get the initial offset of the header only if it hasn't been set, or set it dynamically
+        const headerOffset = header.offsetTop; 
+        
+        if (window.pageYOffset > headerOffset + 50) { // Added a small buffer (50px)
             // Add a class that makes the header fixed
             header.classList.add("sticky");
         } else {
-            // Remove the class when the user scrolls back to the top
+            // Remove the class when the user scrolls back near the top
             header.classList.remove("sticky");
         }
     }
